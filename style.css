@@ -551,6 +551,42 @@ a:active {
 .l1 {
   line-height: 1;
 }
+.section-title-container {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+.section-title-container::after {
+  content: "";
+  position: absolute;
+  bottom: 7px;
+  height: 1px;
+  width: 230px;
+  background: #cccccc;
+  z-index: -1;
+}
+.section-title {
+  font-weight: 800;
+  font-size: 28px;
+  color: #0eb493;
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+}
+.section-title::after {
+  content: "\f08a";
+  font-family: FontAwesome;
+  text-align: center;
+  color: #cccccc;
+  line-height: 1;
+  font-size: 14px;
+  position: relative;
+  z-index: 1;
+  background: #fff;
+  width: 50px;
+  margin: 0 auto;
+  padding-top: 15px;
+}
 /* ===================================================================== */
 /* HEADER */
 /* ===================================================================== */
@@ -613,6 +649,8 @@ header {
 /* ===================================================================== */
 /* HOME PAGE */
 /* ===================================================================== */
+
+/* Hero section */
 .hero-text {
   padding-top: 388px;
 }
@@ -653,6 +691,13 @@ header {
   height: 16px;
   padding-right: 17px;
   color: #fff;
+}
+
+/* Work section */
+
+.work-section {
+  padding-top: 65px;
+  padding-bottom: 100px;
 }
 /* ===================================================================== */
 /* FOOTER */

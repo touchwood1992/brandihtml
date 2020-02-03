@@ -704,14 +704,14 @@ header {
   color: #fff;
 }
 
-/* Work section */
+/* Feature section */
 
-.work-section {
+.features-section {
   padding-top: 65px;
   padding-bottom: 138px;
   background-color: #f4f7f9;
 }
-.work-section__row {
+.features-section__row {
   padding-top: 63px;
 }
 .fitem {
@@ -734,9 +734,12 @@ header {
   margin-bottom: 0;
   line-height: 21px;
 }
-.section-title::after {
+.features-section .section-title::after {
   background-color: #f4f7f9;
 }
+
+/* Work section */
+
 /* ===================================================================== */
 /* FOOTER */
 /* ===================================================================== */

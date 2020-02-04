@@ -882,6 +882,15 @@ header {
   font-size: 14px;
   font-weight: 400;
 }
+
+/* Meet our team */
+.meet-team {
+  padding-top: 89px;
+}
+.meet-team .work-description {
+  padding-top: 30px;
+  padding-bottom: 108px;
+}
 /* ===================================================================== */
 /* FOOTER */
 /* ===================================================================== */

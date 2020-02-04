@@ -617,7 +617,7 @@ a:active {
 /* HEADER */
 /* ===================================================================== */
 header {
-  background: url("assets/imgs/hero.jpg");
+  background: url("assets/imgs/hero.jpg") no-repeat center center/cover;
   color: #fff;
 }
 .navbar {
@@ -768,7 +768,7 @@ header {
 
 /* Work section */
 .work-section {
-  padding: 85px 0 100px 0;
+  padding-top: 85px;
 }
 .work-description {
   font-weight: 600;
@@ -903,7 +903,6 @@ header {
   .col-10,
   .col-11,
   .col-12 {
-    padding-top: 15px;
     -webkit-box-flex: 0;
     -ms-flex: 0 0 100%;
     flex: 0 0 100%;

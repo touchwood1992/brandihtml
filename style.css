@@ -15,12 +15,11 @@ html {
   box-sizing: inherit;
 }
 :root {
-  --primary-color: green;
-  --secondary-color: blue;
+  --primary-color: #0eb493;
 }
 
 body {
-  color: #333;
+  color: #062033;
   background-color: #fff;
   font-family: "Open Sans", sans-serif;
   font-weight: 400;
@@ -568,7 +567,7 @@ a:active {
 .section-title {
   font-weight: 800;
   font-size: 28px;
-  color: #0eb493;
+  color: var(--primary-color);
   text-transform: uppercase;
   display: flex;
   flex-direction: column;
@@ -733,13 +732,123 @@ header {
   font-size: 13px;
   margin-bottom: 0;
   line-height: 21px;
+  opacity: 0.7;
 }
 .features-section .section-title::after {
   background-color: #f4f7f9;
 }
 
 /* Work section */
+.work-section {
+  padding: 85px 0 100px 0;
+}
+.work-description {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 23.5px;
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 33px;
+  opacity: 0.8;
+}
+.work-filter {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 47px;
+  padding-bottom: 37px;
+}
+.work-filter a {
+  font-size: 14px;
+  color: #062033;
+  display: block;
+  padding: 0;
+  font-weight: 700;
+  background-color: #fff;
+  text-decoration: none;
+  padding: 4.5px 19.4px;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+.work-filter li:last-child a {
+  margin-right: 0;
+}
+.work-filter a.active {
+  color: #fff;
+  background-color: var(--primary-color);
+}
+.work-filter-item {
+  padding: 0;
+  display: flex;
+  position: relative;
+  cursor: pointer;
+}
 
+.work-filter-item__overlay {
+  color: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(14, 180, 147, 0.9);
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.3s ease-in-out;
+}
+.work-filter-item img {
+  width: 100%;
+}
+.work-filter-item:hover .work-filter-item__overlay {
+  opacity: 1;
+}
+.work-filter-item__overlay i {
+  font-size: 16px;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  border: 1px solid #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 23px;
+}
+.work-filter-item__overlay p {
+  font-size: 18px;
+  padding-bottom: 2px;
+  font-weight: 700;
+}
+.work-filter-item__overlay h4 {
+  font-size: 14px;
+  font-weight: 400;
+}
 /* ===================================================================== */
 /* FOOTER */
 /* ===================================================================== */
+
+/* ===================================================================== */
+/* Responsive */
+/* ===================================================================== */
+@media (max-width: 767px) {
+  .col,
+  .col-1,
+  .col-2,
+  .col-3,
+  .col-4,
+  .col-5,
+  .col-6,
+  .col-7,
+  .col-8,
+  .col-9,
+  .col-10,
+  .col-11,
+  .col-12 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}

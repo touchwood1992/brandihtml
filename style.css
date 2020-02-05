@@ -19,10 +19,12 @@ html {
 :root {
   --primary-color: #0eb493;
   --prmary-color-rgb: 14, 180, 147;
+  --text-color: #062033;
+  --text-color-rgb: 6, 32, 51;
 }
 
 body {
-  color: #062033;
+  color: var(--text-color);
   background-color: #fff;
   font-family: "Open Sans", sans-serif;
   font-weight: 400;
@@ -679,7 +681,7 @@ header {
 /* HOME PAGE */
 /* ===================================================================== */
 
-/* Hero section */
+/*========================= Hero section =========================*/
 .hero-text {
   padding-top: 388px;
 }
@@ -726,7 +728,7 @@ header {
   color: #fff;
 }
 
-/* Feature section */
+/*========================= Feature section =========================*/
 
 .features-section {
   padding-top: 65px;
@@ -767,7 +769,7 @@ header {
   background-color: #f4f7f9;
 }
 
-/* Work section */
+/*========================= Work section =========================*/
 .work-section {
   padding-top: 85px;
 }
@@ -799,7 +801,7 @@ header {
 }
 .work-filter a {
   font-size: 14px;
-  color: #062033;
+  color: var(--text-color);
   display: block;
   padding: 0;
   font-weight: 700;
@@ -884,7 +886,7 @@ header {
   font-weight: 400;
 }
 
-/* Meet our team */
+/*========================= MEET OUR TEAM========================= */
 .meet-team {
   padding-top: 89px;
   padding-bottom: 214px;
@@ -969,10 +971,90 @@ header {
   padding-top: 5px;
   opacity: 0.53;
 }
+
+/*========================= FACTS PART=========================*/
+section.facts {
+  background: linear-gradient(
+      to bottom,
+      rgba(6, 32, 51, 0.8),
+      rgba(6, 32, 51, 0.8)
+    ),
+    url("assets/imgs/bg.jpg") center center/cover no-repeat;
+  color: #fff;
+  padding-top: 88px;
+  padding-bottom: 155px;
+}
+.facts__row {
+  padding-top: 25px;
+}
+.facts__item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.facts__item__symbol {
+  height: 130px;
+  width: 130px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  font-size: 24px;
+}
+.facts__item__digits {
+  padding-top: 36px;
+  font-weight: 600;
+  font-size: 60px;
+  line-height: 1.2;
+}
+.facts__item__desc {
+  font-size: 18px;
+  line-height: 1.3;
+}
+.section-title-container {
+  position: relative;
+}
+.section-title-container::before,
+.section-title-container::after {
+  content: "";
+  position: absolute;
+  bottom: 7px;
+  background: #cccccc;
+  height: 1px;
+  width: 95px;
+  margin: 0 auto;
+  right: 0;
+  left: -143px;
+  z-index: 10;
+}
+.section-title-container::after {
+  right: -143px;
+  left: 0;
+}
+section.facts .section-title::before {
+  width: 0;
+}
+section.facts .section-title::after {
+  background-color: transparent;
+}
+
+/*========================= CONTACT US =========================*/
+section.contact-us {
+  padding-top: 88px;
+}
+.contact-map {
+  padding-top: 100px;
+}
+
 /* ===================================================================== */
 /* FOOTER */
 /* ===================================================================== */
-
+footer {
+  border-top: 5px solid var(--text-color);
+  background-color: rgb(33, 182, 151, 0.9);
+}
 /* ===================================================================== */
 /* Responsive */
 /* ===================================================================== */

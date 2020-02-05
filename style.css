@@ -18,6 +18,7 @@ html {
 }
 :root {
   --primary-color: #0eb493;
+  --prmary-color-rgb: 14, 180, 147;
 }
 
 body {
@@ -831,7 +832,7 @@ header {
   left: 0;
   bottom: 0;
   right: 0;
-  background-color: rgba(14, 180, 147, 0.9);
+  background-color: rgba(var(--prmary-color-rgb), 0.9);
   opacity: 0;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -886,10 +887,80 @@ header {
 /* Meet our team */
 .meet-team {
   padding-top: 89px;
+  padding-bottom: 214px;
 }
 .meet-team .work-description {
   padding-top: 30px;
   padding-bottom: 108px;
+}
+.meet-team__item__inner {
+  position: relative;
+}
+.meet-team__item__overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(var(--prmary-color-rgb), 0.95);
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.3s ease-in-out;
+  cursor: pointer;
+  padding-bottom: 23px;
+}
+.team__item__overlay__text {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.5;
+  width: 85%;
+  text-align: center;
+  padding-top: 18px;
+}
+
+.team__item__overlay__text span {
+  font-weight: 400;
+  display: block;
+  padding-top: 8px;
+}
+.meet-team__item__overlay__links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.meet-team__item__overlay__links a {
+  height: 42px;
+  background: rgba(0, 0, 0, 0.3);
+  width: 42px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 5px;
+  text-decoration: none;
+}
+.meet-team__item__overlay__links i {
+  font-size: 24px;
+  color: #fff;
+}
+.meet-team__item__inner:hover .meet-team__item__overlay {
+  opacity: 1;
+  z-index: 1;
+}
+.meet-team__item__title {
+  font-weight: 600;
+  font-size: 18px;
+  padding-top: 14px;
+}
+.meet-team__item__position {
+  font-size: 13px;
+  padding-top: 5px;
 }
 /* ===================================================================== */
 /* FOOTER */

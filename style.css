@@ -893,6 +893,9 @@ header {
   padding-top: 30px;
   padding-bottom: 108px;
 }
+.meet-team__item {
+  text-align: center;
+}
 .meet-team__item__inner {
   position: relative;
 }
@@ -958,9 +961,13 @@ header {
   font-size: 18px;
   padding-top: 14px;
 }
+.meet-team__item:hover .meet-team__item__title {
+  color: var(--primary-color);
+}
 .meet-team__item__position {
   font-size: 13px;
   padding-top: 5px;
+  opacity: 0.53;
 }
 /* ===================================================================== */
 /* FOOTER */

@@ -858,6 +858,7 @@ header {
 }
 .work-filter-item:hover .work-filter-item__overlay {
   opacity: 1;
+  z-index: 1;
 }
 .work-filter-item__overlay i {
   font-size: 16px;
@@ -913,7 +914,7 @@ header {
   justify-content: space-between;
   flex-direction: column;
   align-items: center;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   opacity: 0;
   z-index: -1;
   transition: opacity 0.3s ease-in-out;
@@ -1054,6 +1055,23 @@ section.contact-us {
 footer {
   border-top: 5px solid var(--text-color);
   background-color: rgb(33, 182, 151, 0.9);
+  padding-top: 97px;
+  color: #fff;
+}
+.footer__desciption {
+  font-size: 13px;
+  padding-top: 37px;
+  line-height: 24px;
+}
+.footer__heading {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.5;
+  padding-top: 10px;
+}
+.newsletter_form input.newsleter-input {
+  background: transparent;
+  border: 2px solid #fff;
 }
 /* ===================================================================== */
 /* Responsive */

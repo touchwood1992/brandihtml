@@ -624,7 +624,8 @@ header {
   color: #fff;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  height: 100vh;
+  max-height: 800px;
 }
 .navbar {
   background-color: rgba(16, 22, 54, 0.2);
@@ -1051,6 +1052,9 @@ section.contact-us {
 }
 .contact-map {
   padding-top: 100px;
+}
+.contact-map img {
+  width: 100%;
 }
 
 /* ===================================================================== */

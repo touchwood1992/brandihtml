@@ -622,6 +622,9 @@ a:active {
 header {
   background: url("assets/imgs/hero.jpg") no-repeat center center/cover;
   color: #fff;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 .navbar {
   background-color: rgba(16, 22, 54, 0.2);
@@ -683,7 +686,7 @@ header {
 
 /*========================= Hero section =========================*/
 .hero-text {
-  padding-top: 388px;
+  margin-top: auto;
 }
 .main-title {
   margin: 0;

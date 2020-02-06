@@ -852,6 +852,7 @@ header {
   -webkit-transition: opacity 0.3s ease-in-out;
   -o-transition: opacity 0.3s ease-in-out;
   transition: opacity 0.3s ease-in-out;
+  z-index: -10;
 }
 .work-filter-item img {
   width: 100%;

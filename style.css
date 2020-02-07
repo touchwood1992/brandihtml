@@ -863,9 +863,6 @@ header {
 .work-filter-item img {
   width: 100%;
 }
-.work-filter-item:hover img {
-  transform: scale(5);
-}
 .work-filter-item:hover .work-filter-item__overlay {
   opacity: 1;
   z-index: 1;
@@ -1136,9 +1133,12 @@ section.facts {
   transition: all 0.3s ease-in-out;
 }
 
-.facts__item__symbol_container:hover .facts__item__symbol,
-.facts__item__symbol_container:active .facts__item__symbol {
+.facts__item__symbol_container:hover .facts__item__symbol {
   background: var(--primary-color);
+  -webkit-transform: rotate(360deg) scale(1.01);
+  -ms-transform: rotate(360deg) scale(1.01);
+  transform: rotate(360deg) scale(1.01);
+  border: 1px solid #fff;
 }
 .facts__item__digits {
   padding-top: 36px;

@@ -864,7 +864,7 @@ header {
   width: 100%;
 }
 .work-filter-item:hover img {
-  display: none;
+  transform: scale(5);
 }
 .work-filter-item:hover .work-filter-item__overlay {
   opacity: 1;

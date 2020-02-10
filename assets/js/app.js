@@ -1,18 +1,18 @@
 const uiElements = (function() {
   const el = [
     {
-      selector: "#js-features-animate",
-      offset: "70%",
+      selector: ".js-features-animate",
+      offset: "75%",
       effect: "animated zoomIn"
     },
     {
-      selector: "#js-work-animate",
-      offset: "70%",
+      selector: ".js-work-animate",
+      offset: "85%",
       effect: "animated fadeInRightBig"
     },
     {
-      selector: "#js-team-animate",
-      offset: "80%",
+      selector: ".js-team-animate",
+      offset: "85%",
       effect: "animated fadeInLeftBig"
     },
     {

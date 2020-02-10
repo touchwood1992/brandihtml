@@ -3,7 +3,7 @@ const uiElements = (function() {
     {
       selector: "#js-features-animate",
       offset: "70%",
-      effect: "animated slideInDown"
+      effect: "animated zoomIn"
     },
     {
       selector: "#js-work-animate",

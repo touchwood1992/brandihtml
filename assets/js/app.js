@@ -27,8 +27,13 @@ const uiElements = (function() {
 })();
 
 const uiController = (function() {
-  const setUpwayPoint = item => {
-    const { selector, offset, effect } = item;
+  const setUpwayPoint = function(item) {
+    //const { selector, offset, effect } = item;
+
+    const selector = item.selector;
+    const offset = item.offset;
+    const effect = item.effect;
+
     $(selector).waypoint(
       function(direction) {
         if (direction == "down") {
@@ -47,8 +52,10 @@ const uiController = (function() {
 
 const appController = (function(ui, controller) {
   const allUi = ui.allUi;
-  const setInit = () => {
-    allUi.forEach((item, index) => controller.setPoint(item));
+  const setInit = function() {
+    allUi.forEach(function(item, index) {
+      controller.setPoint(item);
+    });
   };
   return {
     init: setInit

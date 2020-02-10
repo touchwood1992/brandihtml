@@ -1322,11 +1322,26 @@ footer {
     -ms-flex: 0 0 100%;
     flex: 0 0 100%;
     max-width: 100%;
+    padding-top: 15px;
   }
   nav .main-menu {
     display: none;
   }
   .main-title {
     font-size: 40px;
+  }
+  .work-filter-item {
+    padding-top: 0;
+  }
+  .fitem {
+    flex-direction: column;
+    align-items: center;
+  }
+  .fitem__title {
+    text-align: center;
+    margin-top: 0.75rem;
+  }
+  .fitem__image {
+    margin-right: 0;
   }
 }

@@ -1323,4 +1323,10 @@ footer {
     flex: 0 0 100%;
     max-width: 100%;
   }
+  nav .main-menu {
+    display: none;
+  }
+  .main-title {
+    font-size: 40px;
+  }
 }

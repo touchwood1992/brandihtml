@@ -1248,7 +1248,7 @@ section.contact-us {
 /* ===================================================================== */
 footer {
   border-top: 5px solid var(--text-color);
-  background-color: rgb(33, 182, 151, 0.9);
+  background-color: rgba(33, 182, 151, 0.9);
   padding-top: 96px;
   padding-bottom: 117px;
   color: #fff;

@@ -53,3 +53,14 @@
   ExpiresByType application/pdf "access plus 1 month"
   ExpiresByType application/x-shockwave-flash "access plus 1 month"
 </IfModule>
+
+
+# Cache Control and Enable CORS
+<FilesMatch "\.(js|css|jpg|gif|png|pdf|swf|svg|svgz|ico|ttf|ttc|otf|eot|woff|woff2|webp)$">
+ <IfModule mod_headers.c>
+    ExpiresActive On
+    ExpiresDefault  "access plus 1 month"
+    Header set Cache-Control "public, immutable, max-age=2628000, s-maxage=2628000"
+    Header set Access-Control-Allow-Origin "*"
+ </IfModule>
+</FilesMatch>

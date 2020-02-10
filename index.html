@@ -26,6 +26,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="assets/css/animate.min.css" />
 
     <!-- HTML5 shiv and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -78,7 +79,10 @@
         <section class="features-section">
           <div class="container">
             <h2 class="section-title">Features</h2>
-            <div class="row features-section__row">
+            <div
+              class="row features-section__row do-animate"
+              id="js-features-animate"
+            >
               <div class="col-4 fitem">
                 <img
                   src="assets/imgs/branding.png"
@@ -151,7 +155,10 @@
             </ul>
           </div>
 
-          <div class="work-filter-content d-flex">
+          <div
+            class="work-filter-content d-flex do-animate"
+            id="js-work-animate"
+          >
             <div class="col-3 work-filter-item">
               <img src="assets/imgs/works1.jpg" alt="Photography" />
               <div class="work-filter-item__overlay">
@@ -261,7 +268,7 @@
               accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
               quae ab illo inventore
             </p>
-            <div class="row">
+            <div class="row do-animate" id="js-team-animate">
               <div class="col-3 meet-team__item">
                 <div class="meet-team__item__inner">
                   <img
@@ -401,7 +408,7 @@
             </div>
             <div class="row facts__row">
               <div class="col-3 facts__item">
-                <div class="facts__item__symbol_container">
+                <div class="facts__item__symbol_container do-animate">
                   <i
                     class="fa fa-clock-o facts__item__symbol"
                     aria-hidden="true"
@@ -412,34 +419,34 @@
               </div>
 
               <div class="col-3 facts__item">
-                <div class="facts__item__symbol_container">
-                <i
-                  class="fa fa-user facts__item__symbol"
-                  aria-hidden="true"
-                ></i>
-              </div>
+                <div class="facts__item__symbol_container do-animate">
+                  <i
+                    class="fa fa-user facts__item__symbol"
+                    aria-hidden="true"
+                  ></i>
+                </div>
                 <h3 class="m-0 facts__item__digits">120</h3>
                 <p class="m-0 facts__item__desc">Satisfied Clinets</p>
               </div>
 
               <div class="col-3 facts__item">
-                <div class="facts__item__symbol_container">
-                <i
-                  class="fa fa-rocket facts__item__symbol"
-                  aria-hidden="true"
-                ></i>
-              </div>
+                <div class="facts__item__symbol_container do-animate">
+                  <i
+                    class="fa fa-rocket facts__item__symbol"
+                    aria-hidden="true"
+                  ></i>
+                </div>
                 <h3 class="m-0 facts__item__digits">360</h3>
                 <p class="m-0 facts__item__desc">Projects delivered</p>
               </div>
 
               <div class="col-3 facts__item">
-                <div class="facts__item__symbol_container">
-                <i
-                  class="fa fa-trophy facts__item__symbol"
-                  aria-hidden="true"
-                ></i>
-              </div>
+                <div class="facts__item__symbol_container do-animate">
+                  <i
+                    class="fa fa-trophy facts__item__symbol"
+                    aria-hidden="true"
+                  ></i>
+                </div>
                 <h3 class="m-0 facts__item__digits">42</h3>
                 <p class="m-0 facts__item__desc">Awards Won</p>
               </div>
@@ -511,6 +518,7 @@
     </div>
 
     <script src="assets/js/jquery-3.4.1.min.js"></script>
-    <!-- <script src="assets/js/app.js"></script> -->
+    <script src="assets/js/jquery.waypoints.min.js"></script>
+    <script src="assets/js/app.js"></script>
   </body>
 </html>

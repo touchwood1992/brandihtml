@@ -614,6 +614,23 @@ a:active {
   width: 230px;
   background-color: #cccccc;
 }
+
+/* ===================================================================== */
+/* Animation Classes */
+/* ===================================================================== */
+
+.features-section .section-title {
+  z-index: 1;
+  background-color: #f4f7f9;
+  padding-top: 65px;
+}
+.do-animate {
+  opacity: 0;
+}
+.animated.do-animate {
+  opacity: 1;
+}
+
 /* ===================================================================== */
 /* HEADER */
 /* ===================================================================== */
@@ -738,7 +755,6 @@ header {
 /*========================= Feature section =========================*/
 
 .features-section {
-  padding-top: 65px;
   padding-bottom: 138px;
   background-color: #f4f7f9;
 }
@@ -779,6 +795,7 @@ header {
 /*========================= Work section =========================*/
 .work-section {
   padding-top: 85px;
+  overflow: hidden;
 }
 .work-description {
   font-weight: 600;
@@ -939,6 +956,7 @@ header {
 .meet-team {
   padding-top: 89px;
   padding-bottom: 214px;
+  overflow: hidden;
 }
 .meet-team .work-description {
   padding-top: 30px;

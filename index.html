@@ -17,13 +17,27 @@
     <title>Welcome to Brandi | Have a Great Experience</title>
 
     <link
+      rel="preload"
       href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-      rel="stylesheet"
-      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
-      crossorigin="anonymous"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
     />
+    <link
+      rel="preload"
+      href="assets/css/animate.min.css"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript>
+      <link
+        href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        rel="stylesheet"
+      />
+      <link rel="stylesheet" href="assets/css/animate.min.css" />
+    </noscript>
+
     <link rel="stylesheet" href="style.min.css" />
-    <link rel="stylesheet" href="assets/css/animate.min.css" />
+
     <!-- HTML5 shiv and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -567,6 +581,6 @@
         appController.init();
       });
     </script>
-    <!-- <script src="assets/js/app.min.js" defer></script> -->
+    <!-- <script src="assets/js/app.js" defer></script> -->
   </body>
 </html>

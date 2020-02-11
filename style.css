@@ -1200,8 +1200,7 @@ section.facts {
 }
 
 .facts__item__symbol_container:hover .facts__item__symbol {
-  background-color: #0eb493;
-  background-color: var(--primary-color);
+  background: var(--primary-color);
   -webkit-transform: rotate(360deg) scale(1.01);
   -ms-transform: rotate(360deg) scale(1.01);
   transform: rotate(360deg) scale(1.01);

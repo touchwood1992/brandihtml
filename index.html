@@ -22,7 +22,7 @@
       integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style.min.css" />
     <link rel="stylesheet" href="assets/css/animate.min.css" />
     <!-- HTML5 shiv and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -498,6 +498,75 @@
     <script src="assets/js/jquery-3.4.1.min.js"></script>
     <script src="assets/js/lazysizes.min.js" async></script>
     <script src="assets/js/jquery.waypoints.min.js" defer></script>
-    <script src="assets/js/app.js" defer></script>
+    <script defer>
+      const uiElements = (function() {
+        const el = [
+          {
+            selector: ".js-features-animate",
+            offset: "75%",
+            effect: "animated zoomIn"
+          },
+          {
+            selector: ".js-work-animate",
+            offset: "85%",
+            effect: "animated fadeInRightBig"
+          },
+          {
+            selector: ".js-team-animate",
+            offset: "85%",
+            effect: "animated fadeInLeftBig"
+          },
+          {
+            selector: ".facts__item__symbol_container",
+            offset: "85%",
+            effect: "animated zoomInUp"
+          }
+        ];
+        return {
+          allUi: el
+        };
+      })();
+
+      const uiController = (function() {
+        const setUpwayPoint = function(item) {
+          //const { selector, offset, effect } = item;
+
+          const selector = item.selector;
+          const offset = item.offset;
+          const effect = item.effect;
+
+          $(selector).waypoint(
+            function(direction) {
+              if (direction == "down") {
+                $(this.element).addClass(effect);
+              }
+            },
+            {
+              offset: offset
+            }
+          );
+        };
+        return {
+          setPoint: setUpwayPoint
+        };
+      })();
+
+      const appController = (function(ui, controller) {
+        const allUi = ui.allUi;
+        const setInit = function() {
+          allUi.forEach(function(item, index) {
+            controller.setPoint(item);
+          });
+        };
+        return {
+          init: setInit
+        };
+      })(uiElements, uiController);
+
+      jQuery(document).ready(function() {
+        appController.init();
+      });
+    </script>
+    <!-- <script src="assets/js/app.min.js" defer></script> -->
   </body>
 </html>

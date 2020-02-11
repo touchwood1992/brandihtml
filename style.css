@@ -21,7 +21,6 @@ html {
   --text-color-rgb: 6, 32, 51;
 }
 /* LOAD FONTS */
-
 @font-face {
   font-family: "Open Sans";
   font-style: normal;
@@ -1118,10 +1117,13 @@ header {
 .meet-team__item__inner:hover .meet-team__item__overlay__links {
   opacity: 1;
 }
+.meet-team__item__img {
+  display: block;
+}
 .meet-team__item__title {
   font-weight: 600;
   font-size: 1.125rem;
-  padding-top: 14px;
+  padding-top: 20px;
 }
 .meet-team__item:hover .meet-team__item__title {
   color: #0eb493;

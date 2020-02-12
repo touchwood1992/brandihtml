@@ -507,13 +507,13 @@
         </div>
       </footer>
     </div>
-    <style>
+    <!-- <style>
       img[data-src]::before {
         content: "";
         display: block;
         padding-top: 70%;
       }
-    </style>
+    </style> -->
     <script src="assets/js/jquery-3.4.1.min.js"></script>
     <script src="assets/js/lazysizes.min.js" async></script>
     <script src="assets/js/jquery.waypoints.min.js" defer></script>
@@ -573,6 +573,22 @@
       const appController = (function(ui, controller) {
         const allUi = ui.allUi;
         const setInit = function() {
+          $("img.lazyload").waypoint(
+            function() {
+              var $element = $(this.element);
+
+              this.destroy();
+              $element.on("load", function() {
+                Waypoint.refreshAll();
+                $(this).waypoint({
+                  // Whatever waypoint stuff you're doing that you haven't shared
+                });
+              }),
+                $element.attr("src", $element.data("original"));
+            },
+            { offset: "100%" }
+          );
+
           allUi.forEach(function(item, index) {
             controller.setPoint(item);
           });

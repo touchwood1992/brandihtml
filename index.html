@@ -507,7 +507,6 @@
         </div>
       </footer>
     </div>
-
     <script src="assets/js/jquery-3.4.1.min.js"></script>
     <script src="assets/js/lazysizes.min.js" async></script>
     <script src="assets/js/jquery.waypoints.min.js" defer></script>
@@ -535,8 +534,12 @@
             effect: "animated zoomInUp"
           }
         ];
+
+        const imgLazeLoadClass = "img.lazyload";
+
         return {
-          allUi: el
+          allUi: el,
+          getImgLazeLoadClass: imgLazeLoadClass
         };
       })();
 
@@ -559,19 +562,28 @@
             }
           );
         };
+
+        const setLazyloadImages = function(selector) {
+          $(selector).on("load", function() {
+            Waypoint.refreshAll();
+          });
+        };
+
         return {
-          setPoint: setUpwayPoint
+          setPoint: setUpwayPoint,
+          setLazyloadImagesAction: setLazyloadImages
         };
       })();
 
       const appController = (function(ui, controller) {
         const allUi = ui.allUi;
-        const setInit = function() {
-          //For lazyload images reset waypoint once element is loaded..
-          $("img.lazyload").on("load", function() {
-            Waypoint.refreshAll();
-          });
+        const getImgLazeLoadClass = ui.getImgLazeLoadClass;
 
+        const setInit = function() {
+          //For lazyload images reset waypoint once images are loaded..
+          controller.setLazyloadImagesAction(getImgLazeLoadClass);
+
+          //Set up way pouints for elements
           allUi.forEach(function(item, index) {
             controller.setPoint(item);
           });

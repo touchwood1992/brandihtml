@@ -507,30 +507,37 @@
         </div>
       </footer>
     </div>
+    <style>
+      img[data-src]::before {
+        content: "";
+        display: block;
+        padding-top: 70%;
+      }
+    </style>
     <script src="assets/js/jquery-3.4.1.min.js"></script>
-    <script src="assets/js/lazysizes.min.js" defer></script>
+    <script src="assets/js/lazysizes.min.js" async></script>
     <script src="assets/js/jquery.waypoints.min.js" defer></script>
     <script defer>
       const uiElements = (function() {
         const el = [
           {
             selector: ".js-features-animate",
-            offset: "75%",
+            offset: "50%",
             effect: "animated zoomIn"
           },
           {
             selector: ".js-work-animate",
-            offset: "85%",
+            offset: "90%",
             effect: "animated fadeInRightBig"
           },
           {
             selector: ".js-team-animate",
-            offset: "85%",
+            offset: "90%",
             effect: "animated fadeInLeftBig"
           },
           {
             selector: ".facts__item__symbol_container",
-            offset: "10%",
+            offset: "50%",
             effect: "animated zoomInUp"
           }
         ];

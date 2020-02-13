@@ -16,27 +16,357 @@
     />
     <title>Welcome to Brandi | Have a Great Experience</title>
 
-    <!-- <link
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 1200px;
+        padding: 0 15px;
+        margin: 0 auto;
+      }
+      .row {
+        margin: 0 -15px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+      }
+      .col {
+        padding: 0 15px;
+        -webkit-box-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+      }
+
+      .col-1 {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 8.33%;
+        flex: 0 0 8.33%;
+        max-width: 8.33%;
+        padding: 0 15px;
+      }
+      .col-2 {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 16.66%;
+        flex: 0 0 16.66%;
+        max-width: 16.66%;
+        padding: 0 15px;
+      }
+      .col-3 {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 25%;
+        flex: 0 0 25%;
+        max-width: 25%;
+        padding: 0 15px;
+      }
+      .col-4 {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 33.33%;
+        flex: 0 0 33.33%;
+        max-width: 33.33%;
+        padding: 0 15px;
+      }
+      .col-5 {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 41.666667%;
+        flex: 0 0 41.666667%;
+        max-width: 41.666667%;
+        padding: 0 15px;
+      }
+      .col-6 {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 50%;
+        flex: 0 0 50%;
+        max-width: 50%;
+        padding: 0 15px;
+      }
+      .col-7 {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 58.333333%;
+        flex: 0 0 58.333333%;
+        max-width: 58.333333%;
+        padding: 0 15px;
+      }
+      .col-8 {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 66.666667%;
+        flex: 0 0 66.666667%;
+        max-width: 66.666667%;
+        padding: 0 15px;
+      }
+      .col-9 {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 66.666667%;
+        flex: 0 0 66.666667%;
+        max-width: 66.666667%;
+        padding: 0 15px;
+      }
+      .col-10 {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 83.333333%;
+        flex: 0 0 83.333333%;
+        max-width: 83.333333%;
+        padding: 0 15px;
+      }
+
+      .col-11 {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 91.666667%;
+        flex: 0 0 91.666667%;
+        max-width: 91.666667%;
+        padding: 0 15px;
+      }
+      .col-12 {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+        max-width: 100%;
+        padding: 0 15px;
+      }
+      .text-center {
+        text-align: center;
+      }
+      .d-flex {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+      }
+      .flex-space-between {
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+      }
+      .m-0 {
+        margin: 0;
+      }
+      .p-0 {
+        padding: 0;
+      }
+      .l1 {
+        line-height: 1;
+      }
+
+      .section-title {
+        font-weight: 800;
+        font-size: 28px;
+        color: #0eb493;
+        color: var(--primary-color);
+        text-transform: uppercase;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        position: relative;
+      }
+      .section-title::after {
+        content: "\f08a";
+        font-family: FontAwesome;
+        text-align: center;
+        color: #c3c6c7;
+        line-height: 1;
+        font-size: 14px;
+        position: relative;
+        z-index: 1;
+        background-color: #fff;
+        width: 50px;
+        margin: 0 auto;
+        padding-top: 15px;
+      }
+      .section-title::before {
+        content: "";
+        position: absolute;
+        bottom: 7px;
+        height: 1px;
+        width: 230px;
+        background-color: #cccccc;
+        left: 50%;
+        -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        transform: translateX(-50%);
+      }
+      header {
+        background: url("assets/imgs/hero.jpg") no-repeat center center/cover;
+        color: #fff;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        height: 100vh;
+        max-height: 800px;
+      }
+      .navbar {
+        background-color: rgba(16, 22, 54, 0.2);
+        height: 70px;
+      }
+      .logo-container {
+        padding-top: 24px;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+      }
+      .logo-container__tagline {
+        font-size: 0.8125rem;
+        color: rgba(255, 255, 255, 0.3);
+        padding-top: 10px;
+        font-weight: 300;
+      }
+      .logo-container__tagline::before {
+        content: "";
+        display: inline-block;
+        height: 1rem;
+        width: 0.125rem;
+        background-color: #32b0ee;
+        vertical-align: middle;
+        margin: -2px 16px 0px 26px;
+      }
+      .main-menu {
+        list-style: none;
+      }
+
+      .main-menu a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 0.8125rem;
+        padding: 31px 16.5px 0 16.5px;
+        letter-spacing: 1px;
+        display: block;
+        position: relative;
+      }
+      .main-menu li:last-child a {
+        padding-right: 0;
+      }
+      .main-menu li:first-child a {
+        padding-left: 0;
+      }
+      .current-item a::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        height: 1px;
+        background: #32b0ee;
+        width: 100%;
+        left: 0;
+        right: 0;
+      }
+      /* ===================================================================== */
+      /* HOME PAGE */
+      /* ===================================================================== */
+
+      /*========================= Hero section =========================*/
+      .hero-text {
+        margin-top: auto;
+      }
+      .main-title {
+        margin: 0;
+        padding: 0;
+        line-height: 1;
+        font-size: 62px;
+        font-weight: 300;
+      }
+      .main-title span {
+        font-weight: 700;
+      }
+      .hero-text p {
+        font-weight: 300;
+        font-size: 48px;
+        line-height: 1;
+        margin-bottom: 0;
+        padding-top: 10px;
+      }
+      .hero-text p span {
+        color: #0feb9e;
+      }
+      .professional-text {
+        font-weight: 300;
+        font-size: 1.125rem;
+        line-height: 1;
+        padding-top: 26px;
+        display: inline-block;
+      }
+      .siciallinks {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        padding-top: 102px;
+        padding-bottom: 48px;
+      }
+      .siciallinks .fa {
+        height: 1rem;
+        padding-right: 17px;
+        color: #fff;
+      }
+    </style>
+    <link
       rel="preload"
       href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
       as="style"
       onload="this.onload=null;this.rel='stylesheet'"
     />
+
     <link
       rel="preload"
       href="assets/css/animate.min.css"
       as="style"
       onload="this.onload=null;this.rel='stylesheet'"
-    /> -->
+    />
 
     <link
-      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-      rel="stylesheet"
+      rel="preload"
+      href="assets/css/owl.carousel.min.css"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
     />
-    <link rel="stylesheet" href="assets/css/animate.min.css" />
-    <link rel="stylesheet" href="assets/css/owl.carousel.min.css" />
-    <link rel="stylesheet" href="assets/css/owl.theme.default.min.css" />
-    <link rel="stylesheet" href="style.min.css" />
+
+    <link
+      rel="preload"
+      href="assets/css/owl.theme.default.min.css"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+
+    <link
+      rel="preload"
+      href="style.css"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript>
+      <link
+        href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        rel="stylesheet"
+      />
+      <link rel="stylesheet" href="assets/css/animate.min.css" />
+      <link rel="stylesheet" href="assets/css/owl.carousel.min.css" />
+      <link rel="stylesheet" href="assets/css/owl.theme.default.min.css" />
+      <link rel="stylesheet" href="style.css" />
+    </noscript>
 
     <!-- HTML5 shiv and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -643,6 +973,7 @@
         appController.init();
       });
     </script>
+
     <script>
       $(document).ready(function() {
         var owl = $(".owl-carousel");
@@ -664,6 +995,108 @@
         });
       });
     </script>
-    <!-- <script src="assets/js/app.js" defer></script> -->
+
+    <script>
+      (function(w) {
+        "use strict";
+        // rel=preload support test
+        if (!w.loadCSS) {
+          w.loadCSS = function() {};
+        }
+        // define on the loadCSS obj
+        var rp = (loadCSS.relpreload = {});
+        // rel=preload feature support test
+        // runs once and returns a function for compat purposes
+        rp.support = (function() {
+          var ret;
+          try {
+            ret = w.document.createElement("link").relList.supports("preload");
+          } catch (e) {
+            ret = false;
+          }
+          return function() {
+            return ret;
+          };
+        })();
+
+        // if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+        // then change that media back to its intended value on load
+        rp.bindMediaToggle = function(link) {
+          // remember existing media attr for ultimate state, or default to 'all'
+          var finalMedia = link.media || "all";
+
+          function enableStylesheet() {
+            link.media = finalMedia;
+          }
+
+          // bind load handlers to enable media
+          if (link.addEventListener) {
+            link.addEventListener("load", enableStylesheet);
+          } else if (link.attachEvent) {
+            link.attachEvent("onload", enableStylesheet);
+          }
+
+          // Set rel and non-applicable media type to start an async request
+          // note: timeout allows this to happen async to let rendering continue in IE
+          setTimeout(function() {
+            link.rel = "stylesheet";
+            link.media = "only x";
+          });
+          // also enable media after 3 seconds,
+          // which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+          setTimeout(enableStylesheet, 3000);
+        };
+
+        // loop through link elements in DOM
+        rp.poly = function() {
+          // double check this to prevent external calls from running
+          if (rp.support()) {
+            return;
+          }
+          var links = w.document.getElementsByTagName("link");
+          for (var i = 0; i < links.length; i++) {
+            var link = links[i];
+            // qualify links to those with rel=preload and as=style attrs
+            if (
+              link.rel === "preload" &&
+              link.getAttribute("as") === "style" &&
+              !link.getAttribute("data-loadcss")
+            ) {
+              // prevent rerunning on link
+              link.setAttribute("data-loadcss", true);
+              // bind listeners to toggle media back
+              rp.bindMediaToggle(link);
+            }
+          }
+        };
+
+        // if unsupported, run the polyfill
+        if (!rp.support()) {
+          // run once at least
+          rp.poly();
+
+          // rerun poly on an interval until onload
+          var run = w.setInterval(rp.poly, 500);
+          if (w.addEventListener) {
+            w.addEventListener("load", function() {
+              rp.poly();
+              w.clearInterval(run);
+            });
+          } else if (w.attachEvent) {
+            w.attachEvent("onload", function() {
+              rp.poly();
+              w.clearInterval(run);
+            });
+          }
+        }
+
+        // commonjs
+        if (typeof exports !== "undefined") {
+          exports.loadCSS = loadCSS;
+        } else {
+          w.loadCSS = loadCSS;
+        }
+      })(typeof global !== "undefined" ? global : this);
+    </script>
   </body>
 </html>

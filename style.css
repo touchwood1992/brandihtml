@@ -672,12 +672,28 @@ a:active {
 .animated.do-animate {
   opacity: 1;
 }
+@-webkit-keyframes fadeOutCustom {
+  form {
+    top: 0px;
+  }
+  to {
+    top: -100px;
+  }
+}
 @keyframes fadeOutCustom {
   form {
     top: 0px;
   }
   to {
     top: -100px;
+  }
+}
+@-webkit-keyframes fadeInCustom {
+  from {
+    top: -100px;
+  }
+  to {
+    top: 0px;
   }
 }
 @keyframes fadeInCustom {
@@ -701,11 +717,15 @@ header {
   z-index: 1001;
 }
 header.remove-fix {
+  -webkit-animation-name: fadeOutCustom;
   animation-name: fadeOutCustom;
+  -webkit-animation-duration: 1s;
   animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
 }
 header.add-fix-back {
+  -webkit-animation: fadeInCustom 1s both;
   animation: fadeInCustom 1s both;
   background-color: rgba(123, 125, 134, 0.9);
 }
@@ -803,6 +823,8 @@ header.add-fix-back {
   left: 50%;
   bottom: 0;
   z-index: 1000;
+  -webkit-transform: translate(-50%, -75%);
+  -ms-transform: translate(-50%, -75%);
   transform: translate(-50%, -75%);
   color: #fff;
 }
@@ -811,9 +833,18 @@ header.add-fix-back {
   position: absolute;
   right: 20px;
   top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
   transform: translateY(-50%);
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
 }
 .main-title {

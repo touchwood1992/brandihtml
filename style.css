@@ -791,7 +791,6 @@ header.add-fix-back {
 .hero-section {
   position: relative;
   height: 100vh;
-  width: 100vw;
   max-height: 800px;
 }
 .hero-slider {

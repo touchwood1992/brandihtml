@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- <meta http-equiv="X-UA-Compatible" content="ie=edge" /> -->
     <meta name="keywords" content="Brandi,Brand,India,Best Brandi" />
     <link
       rel="shortcut icon"
@@ -1055,9 +1055,10 @@
     <script src="assets/js/jquery.waypoints.min.js" defer></script>
     <script src="assets/js/owl.carousel.min.js" defer></script>
     <script>
-      let headerFix = false;
-      const uiElements = (function() {
-        const el = [
+      "use strict";
+
+      var uiElements = (function() {
+        var el = [
           {
             selector: ".js-features-animate",
             offset: "50%",
@@ -1079,11 +1080,8 @@
             effect: "animated zoomInUp"
           }
         ];
-
-        const imgLazeLoadClass = "img.lazyload";
-
-        const stickyHeader = "#site-container>header";
-
+        var imgLazeLoadClass = "img.lazyload";
+        var stickyHeader = "#site-container>header";
         return {
           allUi: el,
           getImgLazeLoadClass: imgLazeLoadClass,
@@ -1091,14 +1089,12 @@
         };
       })();
 
-      const uiController = (function() {
-        const setUpwayPoint = function(item) {
+      var uiController = (function() {
+        var setUpwayPoint = function setUpwayPoint(item) {
           //const { selector, offset, effect } = item;
-
-          const selector = item.selector;
-          const offset = item.offset;
-          const effect = item.effect;
-
+          var selector = item.selector;
+          var offset = item.offset;
+          var effect = item.effect;
           $(selector).waypoint(
             function(direction) {
               if (direction == "down") {
@@ -1111,17 +1107,17 @@
           );
         };
 
-        const setLazyloadImages = function(selector) {
+        var setLazyloadImages = function setLazyloadImages(selector) {
           $(selector).on("load", function() {
             Waypoint.refreshAll();
           });
         };
 
-        const makeHeaderSticky = function(headerElement) {
-          if (window.scrollY > 700) {
+        var makeHeaderSticky = function makeHeaderSticky(headerElement) {
+          if (window.pageYOffset > 700) {
             $(headerElement).addClass("add-fix-back");
             $(headerElement).removeClass("remove-fix");
-          } else if (window.scrollY > 1) {
+          } else if (window.pageYOffset > 1) {
             $(headerElement).removeClass("add-fix-back");
             $(headerElement).addClass("remove-fix");
           } else {
@@ -1137,25 +1133,24 @@
         };
       })();
 
-      const appController = (function(ui, controller) {
-        const allUi = ui.allUi;
-        const getImgLazeLoadClass = ui.getImgLazeLoadClass;
-        const stickyHeader = ui.getHeader;
+      var appController = (function(ui, controller) {
+        var allUi = ui.allUi;
+        var getImgLazeLoadClass = ui.getImgLazeLoadClass;
+        var stickyHeader = ui.getHeader;
 
-        const setInit = function() {
+        var setInit = function setInit() {
           //For lazyload images reset waypoint once images are loaded..
-          controller.setLazyloadImagesAction(getImgLazeLoadClass);
+          controller.setLazyloadImagesAction(getImgLazeLoadClass); //Set Sticky Header Now.
 
-          //Set Sticky Header Now.
           window.addEventListener("scroll", function() {
             controller.setStickyHeader(stickyHeader);
-          });
+          }); //Set up way pouints for elements
 
-          //Set up way pouints for elements
           allUi.forEach(function(item, index) {
             controller.setPoint(item);
           });
         };
+
         return {
           init: setInit
         };
@@ -1164,8 +1159,6 @@
       jQuery(document).ready(function() {
         appController.init();
       });
-    </script>
-    <script>
       $(document).ready(function() {
         var heroOwl = $(".owl-heroowl");
         heroOwl.owlCarousel({
@@ -1186,7 +1179,6 @@
             }
           }
         });
-
         var owl = $(".owl-carousel-team");
         owl.owlCarousel({
           margin: 30,
@@ -1206,8 +1198,6 @@
           }
         });
       });
-
-      window.addEventListener("scroll", function() {});
     </script>
     <!-- <script src="assets/js/app.js" defer></script> -->
   </body>

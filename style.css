@@ -682,10 +682,10 @@ header {
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1000;
+  z-index: 1001;
 }
 .navbar {
-  background-color: rgba(16, 22, 54, 0.2);
+  background-color: rgba(16, 22, 54, 0.8);
   height: 70px;
 }
 .logo-container {

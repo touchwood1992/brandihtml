@@ -685,7 +685,7 @@ header {
   z-index: 1001;
 }
 .navbar {
-  background-color: rgba(16, 22, 54, 0.8);
+  background-color: rgba(16, 22, 54, 0.2);
   height: 70px;
 }
 .logo-container {

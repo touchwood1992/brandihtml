@@ -1081,9 +1081,12 @@
 
         const imgLazeLoadClass = "img.lazyload";
 
+        const stickyHeader = "#site-container>header";
+
         return {
           allUi: el,
-          getImgLazeLoadClass: imgLazeLoadClass
+          getImgLazeLoadClass: imgLazeLoadClass,
+          getHeader: stickyHeader
         };
       })();
 
@@ -1113,19 +1116,35 @@
           });
         };
 
+        const makeHeaderSticky = function(headerElement) {
+          console.log(window);
+          if (window.pageYOffset > 200) {
+            console.log($(headerElement));
+            $(headerElement).addClass("remove-fix");
+          }
+        };
+
         return {
           setPoint: setUpwayPoint,
-          setLazyloadImagesAction: setLazyloadImages
+          setLazyloadImagesAction: setLazyloadImages,
+          setStickyHeader: makeHeaderSticky
         };
       })();
 
       const appController = (function(ui, controller) {
         const allUi = ui.allUi;
         const getImgLazeLoadClass = ui.getImgLazeLoadClass;
+        const stickyHeader = ui.getHeader;
 
         const setInit = function() {
           //For lazyload images reset waypoint once images are loaded..
           controller.setLazyloadImagesAction(getImgLazeLoadClass);
+
+          //Set Sticky Header Now.
+          window.addEventListener(
+            "scroll",
+            controller.setStickyHeader(stickyHeader)
+          );
 
           //Set up way pouints for elements
           allUi.forEach(function(item, index) {

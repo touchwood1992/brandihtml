@@ -1134,10 +1134,12 @@
         };
         //showing loader
         var loaderContainerShow = function(loader) {
+          $("body").css("overflow-y", "hidden");
           $(loader).removeClass("hide");
         };
         //Hide loader
         var loaderContainerHide = function(loader) {
+          $("body").css("overflow-y", "auto");
           $(loader).addClass("hide");
         };
 

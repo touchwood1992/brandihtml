@@ -45,6 +45,8 @@
         <![endif]-->
   </head>
   <body>
+    <div class="lds-hourglass"></div>
+
     <div id="site-container">
       <header>
         <nav class="navbar">
@@ -1054,11 +1056,11 @@
 
     <script src="assets/js/jquery-3.4.1.min.js"></script>
     <script src="assets/js/lazysizes.min.js" defer></script>
-
+    <script src="assets/js/jquery.waypoints.min.js" defer></script>
     <script src="assets/js/owl.carousel.min.js" defer></script>
     <script defer>
       "use strict";
-
+      // UI ELEMENTS
       var uiElements = (function() {
         var el = [
           {
@@ -1084,14 +1086,17 @@
         ];
         var imgLazeLoadClass = "img.lazyload";
         var stickyHeader = "#site-container>header";
+        var loaderContainer = ".lds-hourglass";
         return {
           allUi: el,
           getImgLazeLoadClass: imgLazeLoadClass,
-          getHeader: stickyHeader
+          getHeader: stickyHeader,
+          getloaderContainer: loaderContainer
         };
       })();
-
+      // UI CONTROLLER
       var uiController = (function() {
+        //ON scroll set way point
         var setUpwayPoint = function setUpwayPoint(item) {
           //const { selector, offset, effect } = item;
           var selector = item.selector;
@@ -1108,13 +1113,13 @@
             }
           );
         };
-
+        //On load image Refresh Waypoint
         var setLazyloadImages = function setLazyloadImages(selector) {
           $(selector).on("load", function() {
             Waypoint.refreshAll();
           });
         };
-
+        //On scroll sticky header
         var makeHeaderSticky = function makeHeaderSticky(headerElement) {
           if (window.pageYOffset > 700) {
             $(headerElement).addClass("add-fix-back");
@@ -1127,11 +1132,21 @@
             $(headerElement).removeClass("remove-fix");
           }
         };
+        //showing loader
+        var loaderContainerShow = function(loader) {
+          $(loader).removeClass("hide");
+        };
+        //Hide loader
+        var loaderContainerHide = function(loader) {
+          $(loader).addClass("hide");
+        };
 
         return {
           setPoint: setUpwayPoint,
           setLazyloadImagesAction: setLazyloadImages,
-          setStickyHeader: makeHeaderSticky
+          setStickyHeader: makeHeaderSticky,
+          setloaderContainerShow: loaderContainerShow,
+          setloaderContainerHide: loaderContainerHide
         };
       })();
 
@@ -1146,21 +1161,50 @@
 
           window.addEventListener("scroll", function() {
             controller.setStickyHeader(stickyHeader);
-          }); //Set up way pouints for elements
+          });
+        };
 
+        //Set up way pouints for elements
+        var setInitWaypoints = function() {
           allUi.forEach(function(item, index) {
             controller.setPoint(item);
           });
         };
 
+        //Loader Show
+        var showLoader = function() {
+          controller.setloaderContainerShow(ui.getloaderContainer);
+        };
+
+        //Loader Hide
+        var hideLoader = function() {
+          controller.setloaderContainerHide(ui.getloaderContainer);
+        };
+
         return {
-          init: setInit
+          init: setInit,
+          initWaypoints: setInitWaypoints,
+          initshowLoader: showLoader,
+          inithideLoader: hideLoader
         };
       })(uiElements, uiController);
 
+      //Document ready cann init function so that sticky header and refresh waypoint work.
       jQuery(document).ready(function() {
         appController.init();
       });
+
+      //Showing loader on page load
+      appController.initshowLoader();
+
+      //After window load set waypoints with set timeout to prevent early waypoint.
+      jQuery(window).on("load", function() {
+        setTimeout(function() {
+          appController.inithideLoader();
+          appController.initWaypoints();
+        }, 100);
+      });
+
       $(document).ready(function() {
         var heroOwl = $(".owl-heroowl");
         heroOwl.owlCarousel({
@@ -1201,7 +1245,7 @@
         });
       });
     </script>
-    <script src="assets/js/jquery.waypoints.min.js" defer></script>
+
     <!-- <script src="assets/js/app.js" defer></script> -->
   </body>
 </html>

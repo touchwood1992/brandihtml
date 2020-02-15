@@ -706,8 +706,60 @@ a:active {
 }
 
 /* ===================================================================== */
+/* CSS LOADER */
+/* ===================================================================== */
+.lds-hourglass {
+  display: inline-block;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  background-color: rgb(108, 143, 108);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100000;
+}
+.lds-hourglass.hide {
+  opacity: 0;
+  z-index: -1;
+  visibility: hidden;
+}
+
+.lds-hourglass:after {
+  content: " ";
+  display: block;
+  border-radius: 50%;
+  width: 0;
+  height: 0;
+  margin: 8px;
+  box-sizing: border-box;
+  border: 32px solid #fff;
+  border-color: #fff transparent #fff transparent;
+  animation: lds-hourglass 1.2s infinite;
+}
+@keyframes lds-hourglass {
+  0% {
+    transform: rotate(0);
+    animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  }
+  50% {
+    transform: rotate(900deg);
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+  100% {
+    transform: rotate(1800deg);
+  }
+}
+/* ===================================================================== */
 /* HEADER */
 /* ===================================================================== */
+#site-container {
+  overflow-x: hidden;
+}
 header {
   color: #fff;
   position: fixed;
@@ -790,8 +842,6 @@ header.add-fix-back {
 /*========================= Hero section =========================*/
 .hero-section {
   position: relative;
-  height: 100vh;
-  max-height: 800px;
 }
 .hero-slider {
   background-repeat: no-repeat;
@@ -832,6 +882,7 @@ header.add-fix-back {
   -ms-transform: translate(-50%, -75%);
   transform: translate(-50%, -75%);
   color: #fff;
+  width: 100%;
 }
 .hero-slider-container.owl-theme .owl-dots {
   margin-top: 0;
@@ -1510,6 +1561,12 @@ footer {
   }
   .main-title {
     font-size: 40px;
+  }
+  .hero-text {
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
   }
   .work-filter-item {
     padding-top: 0;

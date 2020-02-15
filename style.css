@@ -1566,7 +1566,10 @@ footer {
     -webkit-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-    width: 75%;
+    width: 100%;
+  }
+  .hero-slider-container.owl-theme .owl-dots {
+    display: none;
   }
   .work-filter-item {
     padding-top: 0;

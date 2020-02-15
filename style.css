@@ -882,7 +882,6 @@ header.add-fix-back {
   -ms-transform: translate(-50%, -75%);
   transform: translate(-50%, -75%);
   color: #fff;
-  width: 100%;
 }
 .hero-slider-container.owl-theme .owl-dots {
   margin-top: 0;
@@ -1567,6 +1566,7 @@ footer {
     -webkit-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
+    width: 75%;
   }
   .work-filter-item {
     padding-top: 0;

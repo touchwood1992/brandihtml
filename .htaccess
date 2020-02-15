@@ -57,10 +57,7 @@
 
 # Cache Control and Enable CORS
 <FilesMatch "\.(js|css|jpg|gif|png|pdf|swf|svg|svgz|ico|ttf|ttc|otf|eot|woff|woff2|webp)$">
- <IfModule mod_headers.c>
-    ExpiresActive On
-    ExpiresDefault  "access plus 1 month"
-    Header set Cache-Control "public, immutable, max-age=2628000, s-maxage=2628000"
-    Header set Access-Control-Allow-Origin "*"
+ <IfModule mod_headers.c>    
+    Header set Cache-Control "max-age=31536000, public"    
  </IfModule>
 </FilesMatch>

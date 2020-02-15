@@ -1568,7 +1568,7 @@ footer {
     transform: translate(-50%, -50%);
     width: 100%;
   }
-  .hero-slider-container.owl-theme .owl-dots {
+  .owl-dots {
     display: none;
   }
   .work-filter-item {

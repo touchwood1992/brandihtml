@@ -1543,7 +1543,7 @@ footer {
 .searching-now {
   animation: bounceOut 1s ease-in-out both;
   -webkit-animation: bounceOut 1s ease-in-out both;
-  flex: 0;
+  flex: 0 !important;
 }
 .searching-animate {
   animation: bounceIn 1s ease-in-out both;
@@ -1583,7 +1583,7 @@ footer {
     -webkit-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-    width: 100%;
+    width: 80%;
   }
   .owl-dots {
     display: none;

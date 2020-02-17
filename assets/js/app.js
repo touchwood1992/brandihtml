@@ -32,13 +32,15 @@
       container: ".work-filter-content",
       item: ".work-filter-item"
     };
+    var menuContainer = ".main-menu";
 
     return {
       allUi: el,
       getImgLazeLoadClass: imgLazeLoadClass,
       getHeader: stickyHeader,
       getloaderContainer: loaderContainer,
-      getFilterObj: filterObj
+      getFilterObj: filterObj,
+      getMenuContainer: menuContainer
     };
   })();
 
@@ -123,13 +125,30 @@
         }
       });
     };
+
+    const doSmoothLinks = function(menuContainer) {
+      console.log(menuContainer);
+      $(`${menuContainer}  a[href*="#"]`).on("click", function(e) {
+        e.preventDefault();
+
+        $("html, body").animate(
+          {
+            scrollTop: $($(this).attr("href")).offset().top
+          },
+          500,
+          "linear"
+        );
+      });
+    };
+
     return {
       setPoint: setUpwayPoint,
       setLazyloadImagesAction: setLazyloadImages,
       setStickyHeader: makeHeaderSticky,
       setloaderContainerShow: loaderContainerShow,
       setloaderContainerHide: loaderContainerHide,
-      doFilter: callFilter
+      doFilter: callFilter,
+      setSmotthLinks: doSmoothLinks
     };
   })();
 
@@ -140,6 +159,7 @@
     var getImgLazeLoadClass = ui.getImgLazeLoadClass;
     var stickyHeader = ui.getHeader;
     var filterObj = ui.getFilterObj;
+    var getMenuContainer = ui.getMenuContainer;
 
     var setInit = function setInit() {
       //For lazyload images reset waypoint once images are loaded..
@@ -157,9 +177,13 @@
         }
       });
 
+      //On scroll sticky menu.
       window.addEventListener("scroll", function() {
         controller.setStickyHeader(stickyHeader);
       });
+
+      //Smooth scroll On click of top menu.
+      controller.setSmotthLinks(getMenuContainer);
     };
 
     //Set up way pouints for elements

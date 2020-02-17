@@ -1,4 +1,5 @@
 "use strict";
+
 (function($) {
   // UI ELEMENTS
   var uiElements = (function() {
@@ -32,7 +33,6 @@
       container: ".work-filter-content",
       item: ".work-filter-item"
     };
-
     return {
       allUi: el,
       getImgLazeLoadClass: imgLazeLoadClass,
@@ -40,9 +40,8 @@
       getloaderContainer: loaderContainer,
       getFilterObj: filterObj
     };
-  })();
+  })(); // UI CONTROLLER
 
-  // UI CONTROLLER
   var uiController = (function() {
     //ON scroll set way point
     var setUpwayPoint = function setUpwayPoint(item) {
@@ -60,14 +59,14 @@
           offset: offset
         }
       );
-    };
-    //On load image Refresh Waypoint
+    }; //On load image Refresh Waypoint
+
     var setLazyloadImages = function setLazyloadImages(selector) {
       $(selector).on("load", function() {
         Waypoint.refreshAll();
       });
-    };
-    //On scroll sticky header
+    }; //On scroll sticky header
+
     var makeHeaderSticky = function makeHeaderSticky(headerElement) {
       if (window.pageYOffset > 700) {
         $(headerElement).addClass("add-fix-back");
@@ -79,50 +78,48 @@
         $(headerElement).removeClass("add-fix-back");
         $(headerElement).removeClass("remove-fix");
       }
-    };
-    //showing loader
-    var loaderContainerShow = function(loader) {
+    }; //showing loader
+
+    var loaderContainerShow = function loaderContainerShow(loader) {
       $("body").addClass("body-loaderEnable");
-    };
-    //Hide loader
-    var loaderContainerHide = function(loader) {
+    }; //Hide loader
+
+    var loaderContainerHide = function loaderContainerHide(loader) {
       $("body").removeClass("body-loaderEnable");
       $(loader).addClass("hide");
-    };
+    }; //Filter Now
 
-    //Filter Now
-    const callFilter = function(obj, searvVal, link) {
-      const allItems = $(`${obj.container} > ${obj.item}`);
+    var callFilter = function callFilter(obj, searvVal, link) {
+      var allItems = $("".concat(obj.container, " > ").concat(obj.item)); //Remove Filter Link class and set Active class.
 
-      //Remove Filter Link class and set Active class.
       $(obj.link).removeClass("active");
-      $(link).addClass("active");
+      $(link).addClass("active"); //Resetting addedclasses.
 
-      //Resetting addedclasses.
       $(allItems).addClass("searching-now");
-      $(allItems).removeClass("searching-animate");
+      $(allItems).removeClass("searching-animate"); //If all selected then show every item.
 
-      //If all selected then show every item.
       if (searvVal === "*") {
         $(allItems).removeClass("searching-now");
-        setTimeout(() => {
+        setTimeout(function() {
           $(allItems).addClass("searching-animate");
         }, 1);
-
         return;
-      }
+      } //Loop through every item and show it based on clicked value.
 
-      //Loop through every item and show it based on clicked value.
       $.each(allItems, function(index, value) {
-        const itemValue = $(this).attr("data-filter-value");
+        var _this = this;
+
+        var itemValue = $(this).attr("data-filter-value");
+
         if (itemValue.split(",").indexOf(searvVal) != -1) {
           $(this).removeClass("searching-now");
-          setTimeout(() => {
-            $(this).addClass("searching-animate");
+          setTimeout(function() {
+            $(_this).addClass("searching-animate");
           }, 1);
         }
       });
     };
+
     return {
       setPoint: setUpwayPoint,
       setLazyloadImagesAction: setLazyloadImages,
@@ -131,9 +128,7 @@
       setloaderContainerHide: loaderContainerHide,
       doFilter: callFilter
     };
-  })();
-
-  //APP CONTROLLER
+  })(); //APP CONTROLLER
 
   var appController = (function(ui, controller) {
     var allUi = ui.allUi;
@@ -143,39 +138,33 @@
 
     var setInit = function setInit() {
       //For lazyload images reset waypoint once images are loaded..
-      controller.setLazyloadImagesAction(getImgLazeLoadClass);
+      controller.setLazyloadImagesAction(getImgLazeLoadClass); //Filter Work items
 
-      //Filter Work items
       $(filterObj.link).on("click", function(e) {
         e.preventDefault();
-        const link = e.target;
-        const searchVal = link.getAttribute("data-search");
-        //Do search now
+        var link = e.target;
+        var searchVal = link.getAttribute("data-search"); //Do search now
 
         if (link.classList.contains("active") === false) {
           controller.doFilter(filterObj, searchVal, link);
         }
       });
-
       window.addEventListener("scroll", function() {
         controller.setStickyHeader(stickyHeader);
       });
-    };
+    }; //Set up way pouints for elements
 
-    //Set up way pouints for elements
-    var setInitWaypoints = function() {
+    var setInitWaypoints = function setInitWaypoints() {
       allUi.forEach(function(item, index) {
         controller.setPoint(item);
       });
-    };
+    }; //Loader Show
 
-    //Loader Show
-    var showLoader = function() {
+    var showLoader = function showLoader() {
       controller.setloaderContainerShow(ui.getloaderContainer);
-    };
+    }; //Loader Hide
 
-    //Loader Hide
-    var hideLoader = function() {
+    var hideLoader = function hideLoader() {
       controller.setloaderContainerHide(ui.getloaderContainer);
     };
 
@@ -185,25 +174,20 @@
       initshowLoader: showLoader,
       inithideLoader: hideLoader
     };
-  })(uiElements, uiController);
+  })(uiElements, uiController); //Document ready cann init function so that sticky header and refresh waypoint work.
 
-  //Document ready cann init function so that sticky header and refresh waypoint work.
   jQuery(document).ready(function() {
     appController.init();
-  });
+  }); //Showing loader on page load
 
-  //Showing loader on page load
-  appController.initshowLoader();
+  appController.initshowLoader(); //After window load set waypoints with set timeout to prevent early waypoint.
 
-  //After window load set waypoints with set timeout to prevent early waypoint.
   jQuery(window).on("load", function() {
     setTimeout(function() {
       appController.inithideLoader();
       appController.initWaypoints();
     }, 100);
-  });
-
-  //Owl Carasouls
+  }); //Owl Carasouls
 
   $(document).ready(function() {
     var heroOwl = $(".owl-heroowl");

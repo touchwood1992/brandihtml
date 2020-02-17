@@ -708,6 +708,9 @@ a:active {
 /* ===================================================================== */
 /* CSS LOADER */
 /* ===================================================================== */
+body.body-loaderEnable {
+  overflow: hidden;
+}
 .lds-hourglass {
   display: inline-block;
   position: fixed;
@@ -779,7 +782,8 @@ header.remove-fix {
 header.add-fix-back {
   -webkit-animation: fadeInCustom 1s both;
   animation: fadeInCustom 1s both;
-  background-color: rgba(123, 125, 134, 0.9);
+  background-color: rgba(14, 180, 147, 1);
+  background-color: var(--primary-color);
 }
 .navbar {
   background-color: rgba(16, 22, 54, 0.2);

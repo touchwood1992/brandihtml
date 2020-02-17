@@ -1533,6 +1533,19 @@ footer {
   color: var(--text-color);
 }
 /* ===================================================================== */
+/* FILTERWORK ANIMATE */
+/* ===================================================================== */
+
+.searching-now {
+  animation: bounceOut 1s ease-in-out both;
+  -webkit-animation: bounceOut 1s ease-in-out both;
+  flex: 0;
+}
+.searching-animate {
+  animation: bounceIn 1s ease-in-out both;
+  -webkit-animation: bounceIn 1s ease-in-out both;
+}
+/* ===================================================================== */
 /* Responsive */
 /* ===================================================================== */
 @media (max-width: 47.9375em) {

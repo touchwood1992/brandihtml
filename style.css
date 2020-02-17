@@ -128,6 +128,7 @@ sup {
 img {
   border-style: none;
   max-width: 100%;
+  margin: 0 auto;
 }
 
 /* Forms========================================================================== */
@@ -1077,9 +1078,7 @@ header.add-fix-back {
   transition: opacity 0.3s ease-in-out;
   z-index: -10;
 }
-.work-filter-item img {
-  width: 100%;
-}
+
 .work-filter-item:hover .work-filter-item__overlay {
   opacity: 1;
   z-index: 1;

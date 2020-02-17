@@ -1204,12 +1204,25 @@
           };
 
           //Filter Now
-          const callFilter = (obj, searvVal) => {
+          const callFilter = (obj, searvVal, link) => {
             const allItems = $(`${obj.container} > ${obj.item}`);
 
+            //Remove Filter Link class and set Active class.
+            $(obj.link).removeClass("active");
+            $(link).addClass("active");
+
+            //Resetting addedclasses.
             $(allItems).addClass("searching-now");
             $(allItems).removeClass("searching-animate");
 
+            //If all selected then show every item.
+            if (searvVal === "*") {
+              $(allItems).removeClass("searching-now");
+              $(allItems).addClass("searching-animate");
+              return;
+            }
+
+            //Loop through every item and show it based on clicked value.
             $.each(allItems, function(index, value) {
               const itemValue = $(this).attr("data-filter-value");
               if (itemValue.split(",").includes(searvVal)) {
@@ -1246,7 +1259,7 @@
               //Do search now
 
               if (link.classList.contains("active") === false) {
-                controller.doFilter(filterObj, searchVal);
+                controller.doFilter(filterObj, searchVal, link);
               }
             });
 

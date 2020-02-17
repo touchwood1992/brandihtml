@@ -33,12 +33,14 @@
       container: ".work-filter-content",
       item: ".work-filter-item"
     };
+    var menuContainer = ".main-menu";
     return {
       allUi: el,
       getImgLazeLoadClass: imgLazeLoadClass,
       getHeader: stickyHeader,
       getloaderContainer: loaderContainer,
-      getFilterObj: filterObj
+      getFilterObj: filterObj,
+      getMenuContainer: menuContainer
     };
   })(); // UI CONTROLLER
 
@@ -120,13 +122,28 @@
       });
     };
 
+    var doSmoothLinks = function doSmoothLinks(menuContainer) {
+      console.log(menuContainer);
+      $("".concat(menuContainer, '  a[href*="#"]')).on("click", function(e) {
+        e.preventDefault();
+        $("html, body").animate(
+          {
+            scrollTop: $($(this).attr("href")).offset().top
+          },
+          500,
+          "linear"
+        );
+      });
+    };
+
     return {
       setPoint: setUpwayPoint,
       setLazyloadImagesAction: setLazyloadImages,
       setStickyHeader: makeHeaderSticky,
       setloaderContainerShow: loaderContainerShow,
       setloaderContainerHide: loaderContainerHide,
-      doFilter: callFilter
+      doFilter: callFilter,
+      setSmotthLinks: doSmoothLinks
     };
   })(); //APP CONTROLLER
 
@@ -135,6 +152,7 @@
     var getImgLazeLoadClass = ui.getImgLazeLoadClass;
     var stickyHeader = ui.getHeader;
     var filterObj = ui.getFilterObj;
+    var getMenuContainer = ui.getMenuContainer;
 
     var setInit = function setInit() {
       //For lazyload images reset waypoint once images are loaded..
@@ -148,10 +166,13 @@
         if (link.classList.contains("active") === false) {
           controller.doFilter(filterObj, searchVal, link);
         }
-      });
+      }); //On scroll sticky menu.
+
       window.addEventListener("scroll", function() {
         controller.setStickyHeader(stickyHeader);
-      });
+      }); //Smooth scroll On click of top menu.
+
+      controller.setSmotthLinks(getMenuContainer);
     }; //Set up way pouints for elements
 
     var setInitWaypoints = function setInitWaypoints() {

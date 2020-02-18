@@ -484,6 +484,7 @@ a:active {
   max-width: 1200px;
   padding: 0 15px;
   margin: 0 auto;
+  position: relative;
 }
 .row {
   margin: 0 -15px;
@@ -722,8 +723,14 @@ body.body-loaderEnable {
   bottom: 0;
   top: 0;
   background-color: rgb(108, 143, 108);
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   z-index: 100000;
 }
@@ -740,21 +747,46 @@ body.body-loaderEnable {
   width: 0;
   height: 0;
   margin: 8px;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   border: 32px solid #fff;
   border-color: #fff transparent #fff transparent;
+  -webkit-animation: lds-hourglass 1.2s infinite;
   animation: lds-hourglass 1.2s infinite;
 }
-@keyframes lds-hourglass {
+@-webkit-keyframes lds-hourglass {
   0% {
+    -webkit-transform: rotate(0);
     transform: rotate(0);
+    -webkit-animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
     animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
   }
   50% {
+    -webkit-transform: rotate(900deg);
     transform: rotate(900deg);
+    -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
     animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
   }
   100% {
+    -webkit-transform: rotate(1800deg);
+    transform: rotate(1800deg);
+  }
+}
+@keyframes lds-hourglass {
+  0% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+    -webkit-animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  }
+  50% {
+    -webkit-transform: rotate(900deg);
+    transform: rotate(900deg);
+    -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+  100% {
+    -webkit-transform: rotate(1800deg);
     transform: rotate(1800deg);
   }
 }
@@ -1542,6 +1574,8 @@ footer {
 .searching-now {
   animation: bounceOut 1s ease-in-out both;
   -webkit-animation: bounceOut 1s ease-in-out both;
+  -webkit-box-flex: 0 !important;
+  -ms-flex: 0 !important;
   flex: 0 !important;
 }
 .searching-animate {
@@ -1551,7 +1585,19 @@ footer {
 /* ===================================================================== */
 /* Responsive */
 /* ===================================================================== */
+.mob-hamburger,
+#mob-menu {
+  display: none;
+}
+.work-filter-item__overlay,
+.meet-team__item {
+  max-width: 400px !important;
+  margin: 0 auto;
+}
 @media (max-width: 47.9375em) {
+  .container {
+    max-width: 576px;
+  }
   .col,
   .col-1,
   .col-2,
@@ -1571,9 +1617,104 @@ footer {
     max-width: 100%;
     padding-top: 15px;
   }
-  nav .main-menu {
-    display: none;
+  header,
+  header.remove-fix,
+  header.add-fix-back {
+    -webkit-animation: none;
+    animation: none;
+    background-color: rgba(14, 180, 147, 1);
+    background-color: var(--primary-color);
   }
+  .main-menu li:first-child a {
+    padding-left: 16.5px;
+  }
+  nav .main-menu {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    -webkit-transform: translateX(-100%);
+    -ms-transform: translateX(-100%);
+    transform: translateX(-100%);
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    width: 80%;
+    background-color: #333;
+    bottom: 0;
+  }
+
+  /* MOBILE MENU STARTS */
+  .mob-hamburger {
+    position: relative;
+    padding: 10px;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -ms-flex-item-align: center;
+    align-self: center;
+    margin-top: 12px;
+  }
+  .mob-hamburger span {
+    background: #fff;
+    height: 4px;
+    -webkit-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    width: 100%;
+  }
+
+  .navbar input[type="checkbox"] {
+    position: absolute;
+    right: 25px;
+    height: 30px;
+    width: 30px;
+    top: 22px;
+    cursor: pointer;
+    z-index: 1;
+    opacity: 0;
+  }
+  #mob-menu {
+    display: block;
+  }
+  #mob-menu:checked ~ .mob-hamburger span:first-child {
+    -webkit-transform: rotate(45deg) translate(6px, -5px);
+    -ms-transform: rotate(45deg) translate(6px, -5px);
+    transform: rotate(45deg) translate(6px, -5px);
+    -webkit-transform-origin: top left;
+    -ms-transform-origin: top left;
+    transform-origin: top left;
+  }
+  #mob-menu:checked ~ .mob-hamburger span:nth-child(2) {
+    opacity: 0;
+  }
+  #mob-menu:checked ~ .mob-hamburger span:last-child {
+    -webkit-transform: rotate(-45deg) translate(6px, 0px);
+    -ms-transform: rotate(-45deg) translate(6px, 0px);
+    transform: rotate(-45deg) translate(6px, 0px);
+    -webkit-transform-origin: top left;
+    -ms-transform-origin: top left;
+    transform-origin: top left;
+  }
+  #mob-menu:checked ~ .main-menu {
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+  }
+
   .main-title {
     font-size: 40px;
   }
@@ -1590,6 +1731,7 @@ footer {
   .work-filter-item {
     padding-top: 0;
   }
+
   .fitem {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -1604,6 +1746,6 @@ footer {
     margin-top: 0.75rem;
   }
   .fitem__image {
-    margin-right: 0;
+    margin: 0 auto;
   }
 }

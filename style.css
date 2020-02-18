@@ -1665,6 +1665,7 @@ footer {
     width: 80%;
     background-color: #333;
     bottom: 0;
+    opacity: 0;
   }
 
   /* MOBILE MENU STARTS */
@@ -1733,6 +1734,7 @@ footer {
     -webkit-transform: translateX(0);
     -ms-transform: translateX(0);
     transform: translateX(0);
+    opacity: 1;
   }
 
   .main-title {
@@ -1746,6 +1748,7 @@ footer {
     -webkit-transform: translate(-50%, -60%);
     -ms-transform: translate(-50%, -60%);
     transform: translate(-50%, -60%);
+    width: 80%;
   }
 
   .owl-dots {
@@ -1782,7 +1785,7 @@ footer {
     transform: translate(-50%, -70%);
   }
   .siciallinks {
-    padding-top: 100px;
+    padding-top: 70px;
   }
 }
 

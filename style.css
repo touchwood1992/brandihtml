@@ -1,5 +1,5 @@
 html {
-  line-height: 1.15; /* 1 */
+  line-height: 1.5; /* 1 */
   -webkit-text-size-adjust: 100%; /* 2 */
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
@@ -17,8 +17,7 @@ html {
 :root {
   --primary-color: #0eb493;
   --prmary-color-rgb: 14, 180, 147;
-  --text-color: #062033;
-  --text-color-rgb: 6, 32, 51;
+  --text-color: #062033;  
 }
 /* LOAD FONTS */
 @font-face {

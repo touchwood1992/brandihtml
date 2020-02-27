@@ -109,7 +109,7 @@
         $(allItems).removeClass("searching-now");
         setTimeout(() => {
           $(allItems).addClass("searching-animate");
-        }, 1);
+        }, 100);
 
         return;
       }
@@ -121,7 +121,7 @@
           $(this).removeClass("searching-now");
           setTimeout(() => {
             $(this).addClass("searching-animate");
-          }, 1);
+          }, 100);
         }
       });
     };

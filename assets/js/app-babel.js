@@ -104,7 +104,7 @@
         $(allItems).removeClass("searching-now");
         setTimeout(function() {
           $(allItems).addClass("searching-animate");
-        }, 1);
+        }, 100);
         return;
       } //Loop through every item and show it based on clicked value.
 
@@ -117,7 +117,7 @@
           $(this).removeClass("searching-now");
           setTimeout(function() {
             $(_this).addClass("searching-animate");
-          }, 1);
+          }, 100);
         }
       });
     };
